@@ -17,17 +17,16 @@ class OpeningHoursService {
             last = openingHours.removeLast()
         }
         val calculatedOpeningHours = openingHours.chunked(2) // get the elements in the pairs of opening and closing times
-            .map { elements ->
+            .map {
                 listOf(
-                    elements.first(), // handle the case when the opening hours goes to multiple days
-                    OpeningHoursDay(elements.first().day, elements.last().status, elements.last().seconds)
+                    it.first(), // handle the case when the opening hours go to multiple days
+                    OpeningHoursDay(it.first().day, it.last().status, it.last().seconds)
                 )
             }.flatten()
         return (
             if (previousSundayOpening) calculatedOpeningHours.plus( // add the elements that were stored before.
                 listOf(last!!, OpeningHoursDay(last!!.day, first!!.status, first!!.seconds))
             ) else calculatedOpeningHours
-            )
-            .groupBy { it.day }
+            ).groupBy { it.day }
     }
 }

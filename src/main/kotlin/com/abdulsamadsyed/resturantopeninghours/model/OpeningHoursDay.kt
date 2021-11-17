@@ -14,20 +14,16 @@ class OpeningHoursDay(
     override val status: OpeningStatus,
     override val seconds: Int,
 ) : OpeningHours(status, seconds) {
-    val openingClosingTime: String
+    val openingClosingTimeString: String
+        // it would have been much easier to use below code if the output could be 06:00 AM instead of 6 AM
+        // localTime.format(DateTimeFormatter.ofPattern("hh:mm a"))
         get() {
             val localTime = LocalTime.ofSecondOfDay(seconds.toLong())
-            val hours = localTime.hour
-            val minutes = localTime.minute
-            val minutesStr = if(minutes > 0) { ":$minutes"} else {""}
-            return if (hours >= NOON_TIME) {
-                if (hours - NOON_TIME == 0) { // if time is in the noon hours
-                    "12".plus(minutesStr).plus(" $PM") // NOON hours and add minutes as well
-                } else {
-                    "${hours - NOON_TIME}".plus(minutesStr).plus(" $PM") // else use the reminder part as hours
-                }
-            } else {
-                "$hours".plus(minutesStr).plus(" $AM") // if hours are before 12 (NOON)
-            }
+            val minutesStr = if (localTime.minute > 0) { ":${localTime.minute}" } else { "" }
+            return if (localTime.hour >= NOON_TIME) {
+                // if time is in the NOON hours
+                if (localTime.hour - NOON_TIME == 0) { "12".plus(minutesStr).plus(" $PM") } // NOON hours and add minutes as well
+                else { "${localTime.hour - NOON_TIME}".plus(minutesStr).plus(" $PM") } // else use the reminder part as hours
+            } else { "${localTime.hour}".plus(minutesStr).plus(" $AM") } // if hours are before 12 (NOON)
         }
 }

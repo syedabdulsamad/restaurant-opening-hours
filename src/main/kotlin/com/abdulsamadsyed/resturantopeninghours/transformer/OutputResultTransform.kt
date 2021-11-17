@@ -16,11 +16,11 @@ class OutputResultTransform {
             } else {
                 outputString += "${it.displayName}: "
                 openingHoursOfDay.forEachIndexed { index, openingHour ->
-                    outputString += ("${openingHour.openingClosingTime}" + if (index % 2 == 0 && index < openingHoursOfDay.size - 1) " - " else if (index < openingHoursOfDay.size - 1) ", " else "")
+                    outputString += ("${openingHour.openingClosingTimeString}" + if (index % 2 == 0 && index < openingHoursOfDay.size - 1) " - " else if (index < openingHoursOfDay.size - 1) ", " else "")
                 }
                 outputString += "\n"
             }
         }
-        return outputString
+        return outputString.trim()
     }
 }
