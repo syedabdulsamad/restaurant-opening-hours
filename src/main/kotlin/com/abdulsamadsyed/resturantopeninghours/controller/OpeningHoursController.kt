@@ -4,6 +4,7 @@ import com.abdulsamadsyed.resturantopeninghours.model.input.OpeningHoursInputReq
 import com.abdulsamadsyed.resturantopeninghours.service.OpeningHoursService
 import com.abdulsamadsyed.resturantopeninghours.transformer.InputRequestTransformer
 import com.abdulsamadsyed.resturantopeninghours.transformer.OutputResultTransform
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -18,11 +19,11 @@ class OpeningHoursController(
 ) {
 
     @GetMapping("/opening-hours")
-    fun getOpeningHours(@Validated @RequestBody openingHoursInput: OpeningHoursInputRequest): Mono<String> {
+    fun getOpeningHours(@Validated @RequestBody openingHoursInput: OpeningHoursInputRequest): String {
         val transformInput = inputTransformer.transformInput(openingHoursInput)
         val openingHours = openingHoursService.getOpeningHours(transformInput)
         val result = outputResultTransform.transformToOutput(openingHours)
         result.apply { println(this) }
-        return Mono.just(result)
+        return result
     }
 }
