@@ -36,7 +36,7 @@ class InputRequestTransformer {
         transformedRequest.chunked(2) {
             if (it.first().status == it.last().status) {
                 throw RequestFormatException("Consecutive opening or closing entries for a restaurant.")
-            } 
+            }
         }
         return transformedRequest
     }

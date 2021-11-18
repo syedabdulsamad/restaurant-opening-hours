@@ -3,13 +3,15 @@
 
 # Build and Run
 
+Navigate to the main project directory ``restaurant-opening-hours``
+
 Build project:
 
 > mvn clean install
 
 Build project:
 
-> java -jar targets/resturant-opening-hours-0.0.1-SNAPSHOT.jar
+> java -jar target/resturant-opening-hours-0.0.1-SNAPSHOT.jar
 
 ## Swagger documentation
 
