@@ -49,7 +49,7 @@ class OpeningHoursIT {
             "Sunday: 12 PM - 9 PM, 11 PM - 6 PM"
 
         val result = mockMvc.perform(
-            MockMvcRequestBuilders.get("/opening-hours")
+            MockMvcRequestBuilders.post("/opening-hours-converter")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBodyMultipleDays())
         ).andExpect(status().isOk)
@@ -69,7 +69,7 @@ class OpeningHoursIT {
             "Sunday: 12 PM - 9 PM"
 
         val result = mockMvc.perform(
-            MockMvcRequestBuilders.get("/opening-hours")
+            MockMvcRequestBuilders.post("/opening-hours-converter")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBodySameDays())
         ).andExpect(status().isOk)
@@ -82,7 +82,7 @@ class OpeningHoursIT {
     fun testGetOpeningHoursWithConsecutiveEntries() {
         val mapper = ObjectMapper().registerKotlinModule()
         val result = mockMvc.perform(
-            MockMvcRequestBuilders.get("/opening-hours")
+            MockMvcRequestBuilders.post("/opening-hours-converter")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBodyConsecutiveEntries())
         ).andExpect(status().isBadRequest)
@@ -96,7 +96,7 @@ class OpeningHoursIT {
     fun testGetOpeningHoursWithInvalidEntriesCount() {
         val mapper = ObjectMapper().registerKotlinModule()
         val result = mockMvc.perform(
-            MockMvcRequestBuilders.get("/opening-hours")
+            MockMvcRequestBuilders.post("/opening-hours-converter")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBodyWithInvalidEntriesCount())
         ).andExpect(status().isBadRequest)

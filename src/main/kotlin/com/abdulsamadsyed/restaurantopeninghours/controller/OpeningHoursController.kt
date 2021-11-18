@@ -5,7 +5,7 @@ import com.abdulsamadsyed.restaurantopeninghours.service.OpeningHoursService
 import com.abdulsamadsyed.restaurantopeninghours.transformer.InputRequestTransformer
 import com.abdulsamadsyed.restaurantopeninghours.transformer.OutputResultTransform
 import org.springframework.validation.annotation.Validated
-import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
@@ -16,8 +16,8 @@ class OpeningHoursController(
     val outputResultTransform: OutputResultTransform
 ) {
 
-    @GetMapping("/opening-hours")
-    fun getOpeningHours(@Validated @RequestBody openingHoursInput: OpeningHoursInputRequest): String {
+    @PostMapping("/opening-hours-converter")
+    fun convertOpeningHours(@Validated @RequestBody openingHoursInput: OpeningHoursInputRequest): String {
         val transformInput = inputTransformer.transformInputRequest(openingHoursInput)
         val openingHours = openingHoursService.getOpeningHours(transformInput)
         val result = outputResultTransform.transformToOutput(openingHours)
