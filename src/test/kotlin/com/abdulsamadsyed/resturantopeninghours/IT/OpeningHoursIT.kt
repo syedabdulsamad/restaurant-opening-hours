@@ -36,8 +36,8 @@ class OpeningHoursIT {
     private lateinit var outputResultTransform: OutputResultTransform
 
     @Test
-    @DisplayName("Test the endpoint with request to get opening hours")
-    fun testGetOpeningHours() {
+    @DisplayName("Test the endpoint with request to get opening hours with opening hours spanning many days.")
+    fun testGetOpeningHoursSpanningMultipleDays() {
         val expectedResult = "Monday: Closed\n" +
             "Tuesday: 10 AM - 6 PM\n" +
             "Wednesday: Closed\n" +
@@ -49,13 +49,88 @@ class OpeningHoursIT {
         val result = mockMvc.perform(
             MockMvcRequestBuilders.get("/opening-hours")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(requestBody())
+                .content(requestBodyMultipleDays())
         ).andExpect(status().isOk)
             .andReturn()
         assertEquals(result.response.contentAsString, expectedResult)
     }
 
-    private fun requestBody() = """{
+    @Test
+    @DisplayName("Test the endpoint with request to get opening hours with opening hours on same days.")
+    fun testGetOpeningHoursSameDays() {
+        val expectedResult = "Monday: Closed\n" +
+                "Tuesday: 10 AM - 6 PM\n" +
+                "Wednesday: Closed\n" +
+                "Thursday: 10:30 AM - 6 PM, 7 PM - 11 PM\n" +
+                "Friday: 10 AM - 1 AM\n" +
+                "Saturday: 10 AM - 1 AM\n" +
+                "Sunday: 12 PM - 9 PM"
+
+        val result = mockMvc.perform(
+            MockMvcRequestBuilders.get("/opening-hours")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBodySameDays())
+        ).andExpect(status().isOk)
+            .andReturn()
+        assertEquals(result.response.contentAsString, expectedResult)
+    }
+    private fun requestBodySameDays() = """{
+	"monday": [],
+	"tuesday": [{
+		"type": "open",
+		"value": 36000
+	}, {
+		"type" : "close",
+		"value": 64800
+	}],
+	"wednesday": [],
+	"thursday": [{
+			"type": "open",
+			"value": 37800
+		},
+		{
+			"type": "close",
+			"value": 64800
+		},
+        {
+			"type": "open",
+			"value": 68400
+		},
+		{
+			"type": "close",
+			"value": 82800
+		}],
+	"friday": [{
+		"type": "open",
+		"value": 36000
+	},
+    {
+		"type": "close",
+		"value": 3600
+	}],
+	"saturday": [
+		{
+			"type": "open",
+			"value": 36000
+		},
+        {
+			"type": "close",
+			"value": 3600
+		}],
+	"sunday": [
+		{
+			"type": "open",
+			"value": 43200
+		},
+		{
+			"type": "close",
+			"value": 75600
+		}
+	]
+}
+"""
+
+    private fun requestBodyMultipleDays() = """{
 	"monday": [{
         "type" : "close",
 		"value": 64800
