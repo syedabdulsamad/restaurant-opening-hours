@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 @Component
 class InputRequestTransformer {
 
-    fun transformInput(inputRequest: OpeningHoursInputRequest): List<OpeningHoursDay> {
+    fun transformInputRequest(inputRequest: OpeningHoursInputRequest): List<OpeningHoursDay> {
         val mondayHours = inputRequest.monday.map { OpeningHoursDay(DaysOfWeek.monday, it.status, it.seconds) }
         val tuesdayHours = inputRequest.tuesday.map { OpeningHoursDay(DaysOfWeek.tuesday, it.status, it.seconds) }
         val wednesdayHours = inputRequest.wednesday.map { OpeningHoursDay(DaysOfWeek.wednesday, it.status, it.seconds) }

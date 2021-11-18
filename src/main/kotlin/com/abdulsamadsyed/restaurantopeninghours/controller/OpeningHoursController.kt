@@ -18,7 +18,7 @@ class OpeningHoursController(
 
     @GetMapping("/opening-hours")
     fun getOpeningHours(@Validated @RequestBody openingHoursInput: OpeningHoursInputRequest): String {
-        val transformInput = inputTransformer.transformInput(openingHoursInput)
+        val transformInput = inputTransformer.transformInputRequest(openingHoursInput)
         val openingHours = openingHoursService.getOpeningHours(transformInput)
         val result = outputResultTransform.transformToOutput(openingHours)
         result.apply { println(this) }
