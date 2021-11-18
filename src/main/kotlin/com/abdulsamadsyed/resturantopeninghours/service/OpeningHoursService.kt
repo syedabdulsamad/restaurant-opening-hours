@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 @Service
 class OpeningHoursService {
     fun getOpeningHours(openingHoursList: List<OpeningHoursDay>): Map<DaysOfWeek, List<OpeningHoursDay>> {
-        val openingHours = if(openingHoursList.first().status == OpeningStatus.open) openingHoursList else openingHoursList.drop(1) + openingHoursList.first()
+        val openingHours = if (openingHoursList.first().status == OpeningStatus.open) openingHoursList else openingHoursList.drop(1) + openingHoursList.first()
         return openingHours.chunked(2) // get the elements in the pairs of opening and closing times
             .map {
                 listOf(
