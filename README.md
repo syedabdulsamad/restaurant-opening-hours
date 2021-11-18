@@ -18,3 +18,62 @@ Build project:
 ## Formatting
 
 > ktlint -F
+
+
+# Part 2 - Assignment
+In the current defined structure where the days appear directly appear at the first level, we have to create a request object which contains same type of data but with different name like i have done now in ``OpeningHoursInputRequest```
+
+The better approach could be to enclose this whole structure inside another key like
+```
+{
+	"days": {
+		"monday": [{
+			"type": "close",
+			"value": 64800
+		}],
+		"tuesday": [{
+			"type": "open",
+			"value": 36000
+		}, {
+			"type": "close",
+			"value": 64800
+		}],
+		"wednesday": [],
+		"thursday": [{
+				"type": "open",
+				"value": 37800
+			},
+			{
+				"type": "close",
+				"value": 64800
+			}],
+		"friday": [],
+		"saturday": [{
+				"type": "close",
+				"value": 3600
+			},
+			{
+				"type": "open",
+				"value": 36000
+			}],
+		"sunday": [{
+				"type": "close",
+				"value": 3600
+			},
+			{
+				"type": "open",
+				"value": 82800
+			}]
+	}
+}
+```
+
+With the above-mentioned structure we can simply define the class ``OpeningHoursInputRequest`` as: 
+```
+data class OpeningHoursInputRequest(val days: Map<DaysOfWeek, List<OpeningHours>>)
+```
+
+We can get the opening hours like below and pass it to ``OpeningHoursService``:
+ ```
+ val allOpeningHours = days.entries.flatMap { it.value }
+ ```
