@@ -16,7 +16,7 @@ Build project:
 > http://localhost:8080/swagger-ui/index.html
 
 ## Formatting
-
+If you have [ktlint](https://github.com/pinterest/ktlint) installed locally, you can simply run to get formatting:
 > ktlint -F
 
 
