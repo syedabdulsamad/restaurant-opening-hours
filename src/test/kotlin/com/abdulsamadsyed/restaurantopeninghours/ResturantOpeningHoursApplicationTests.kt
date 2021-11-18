@@ -1,4 +1,4 @@
-package com.abdulsamadsyed.resturantopeninghours
+package com.abdulsamadsyed.restaurantopeninghours
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

@@ -1,8 +1,8 @@
-package com.abdulsamadsyed.resturantopeninghours.IT
+package com.abdulsamadsyed.restaurantopeninghours.IT
 
-import com.abdulsamadsyed.resturantopeninghours.service.OpeningHoursService
-import com.abdulsamadsyed.resturantopeninghours.transformer.InputRequestTransformer
-import com.abdulsamadsyed.resturantopeninghours.transformer.OutputResultTransform
+import com.abdulsamadsyed.restaurantopeninghours.service.OpeningHoursService
+import com.abdulsamadsyed.restaurantopeninghours.transformer.InputRequestTransformer
+import com.abdulsamadsyed.restaurantopeninghours.transformer.OutputResultTransform
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test

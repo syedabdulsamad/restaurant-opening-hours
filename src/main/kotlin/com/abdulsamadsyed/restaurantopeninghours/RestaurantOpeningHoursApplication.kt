@@ -1,4 +1,4 @@
-package com.abdulsamadsyed.resturantopeninghours
+package com.abdulsamadsyed.restaurantopeninghours
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

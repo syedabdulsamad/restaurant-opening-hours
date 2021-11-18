@@ -1,9 +1,9 @@
-package com.abdulsamadsyed.resturantopeninghours
+package com.abdulsamadsyed.restaurantopeninghours
 
-import com.abdulsamadsyed.resturantopeninghours.model.OpeningHoursDay
-import com.abdulsamadsyed.resturantopeninghours.model.input.DaysOfWeek
-import com.abdulsamadsyed.resturantopeninghours.model.input.OpeningStatus
-import com.abdulsamadsyed.resturantopeninghours.service.OpeningHoursService
+import com.abdulsamadsyed.restaurantopeninghours.model.OpeningHoursDay
+import com.abdulsamadsyed.restaurantopeninghours.model.input.DaysOfWeek
+import com.abdulsamadsyed.restaurantopeninghours.model.input.OpeningStatus
+import com.abdulsamadsyed.restaurantopeninghours.service.OpeningHoursService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.DisplayName

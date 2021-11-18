@@ -1,4 +1,4 @@
-package com.abdulsamadsyed.resturantopeninghours.exceptionhandling
+package com.abdulsamadsyed.restaurantopeninghours.exceptionhandling
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ControllerAdvice

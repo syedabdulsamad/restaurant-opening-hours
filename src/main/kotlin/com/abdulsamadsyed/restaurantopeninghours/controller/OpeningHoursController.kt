@@ -1,9 +1,9 @@
-package com.abdulsamadsyed.resturantopeninghours.controller
+package com.abdulsamadsyed.restaurantopeninghours.controller
 
-import com.abdulsamadsyed.resturantopeninghours.model.input.OpeningHoursInputRequest
-import com.abdulsamadsyed.resturantopeninghours.service.OpeningHoursService
-import com.abdulsamadsyed.resturantopeninghours.transformer.InputRequestTransformer
-import com.abdulsamadsyed.resturantopeninghours.transformer.OutputResultTransform
+import com.abdulsamadsyed.restaurantopeninghours.model.input.OpeningHoursInputRequest
+import com.abdulsamadsyed.restaurantopeninghours.service.OpeningHoursService
+import com.abdulsamadsyed.restaurantopeninghours.transformer.InputRequestTransformer
+import com.abdulsamadsyed.restaurantopeninghours.transformer.OutputResultTransform
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestBody

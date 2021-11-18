@@ -1,7 +1,7 @@
-package com.abdulsamadsyed.resturantopeninghours.transformer
+package com.abdulsamadsyed.restaurantopeninghours.transformer
 
-import com.abdulsamadsyed.resturantopeninghours.model.OpeningHoursDay
-import com.abdulsamadsyed.resturantopeninghours.model.input.DaysOfWeek
+import com.abdulsamadsyed.restaurantopeninghours.model.OpeningHoursDay
+import com.abdulsamadsyed.restaurantopeninghours.model.input.DaysOfWeek
 import org.springframework.stereotype.Component
 
 @Component

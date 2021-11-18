@@ -1,8 +1,8 @@
-package com.abdulsamadsyed.resturantopeninghours.model
+package com.abdulsamadsyed.restaurantopeninghours.model
 
-import com.abdulsamadsyed.resturantopeninghours.model.input.DaysOfWeek
-import com.abdulsamadsyed.resturantopeninghours.model.input.OpeningHours
-import com.abdulsamadsyed.resturantopeninghours.model.input.OpeningStatus
+import com.abdulsamadsyed.restaurantopeninghours.model.input.DaysOfWeek
+import com.abdulsamadsyed.restaurantopeninghours.model.input.OpeningHours
+import com.abdulsamadsyed.restaurantopeninghours.model.input.OpeningStatus
 import java.time.LocalTime
 
 const val NOON_TIME = 12

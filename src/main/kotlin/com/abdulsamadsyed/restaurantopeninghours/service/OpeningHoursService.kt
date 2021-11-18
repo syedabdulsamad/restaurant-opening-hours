@@ -1,8 +1,8 @@
-package com.abdulsamadsyed.resturantopeninghours.service
+package com.abdulsamadsyed.restaurantopeninghours.service
 
-import com.abdulsamadsyed.resturantopeninghours.model.OpeningHoursDay
-import com.abdulsamadsyed.resturantopeninghours.model.input.DaysOfWeek
-import com.abdulsamadsyed.resturantopeninghours.model.input.OpeningStatus
+import com.abdulsamadsyed.restaurantopeninghours.model.OpeningHoursDay
+import com.abdulsamadsyed.restaurantopeninghours.model.input.DaysOfWeek
+import com.abdulsamadsyed.restaurantopeninghours.model.input.OpeningStatus
 import org.springframework.stereotype.Service
 
 @Service

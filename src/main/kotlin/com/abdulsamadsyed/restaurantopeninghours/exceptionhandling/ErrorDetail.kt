@@ -1,4 +1,4 @@
-package com.abdulsamadsyed.resturantopeninghours.exceptionhandling
+package com.abdulsamadsyed.restaurantopeninghours.exceptionhandling
 
 import java.util.Date
 

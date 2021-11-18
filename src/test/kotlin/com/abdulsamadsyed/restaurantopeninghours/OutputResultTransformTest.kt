@@ -1,15 +1,17 @@
-package com.abdulsamadsyed.resturantopeninghours
+package com.abdulsamadsyed.restaurantopeninghours
 
-import com.abdulsamadsyed.resturantopeninghours.model.OpeningHoursDay
-import com.abdulsamadsyed.resturantopeninghours.model.input.DaysOfWeek
-import com.abdulsamadsyed.resturantopeninghours.model.input.OpeningStatus
-import com.abdulsamadsyed.resturantopeninghours.transformer.OutputResultTransform
+import com.abdulsamadsyed.restaurantopeninghours.model.OpeningHoursDay
+import com.abdulsamadsyed.restaurantopeninghours.model.input.DaysOfWeek
+import com.abdulsamadsyed.restaurantopeninghours.model.input.OpeningStatus
+import com.abdulsamadsyed.restaurantopeninghours.transformer.OutputResultTransform
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class OutputResultTransformTest {
 
     @Test
+    @DisplayName("Test data transformation for the output")
     fun testOutput() {
         val outputResultTransform = OutputResultTransform()
         val expected = "Monday: 5 AM - 7 PM\n" +

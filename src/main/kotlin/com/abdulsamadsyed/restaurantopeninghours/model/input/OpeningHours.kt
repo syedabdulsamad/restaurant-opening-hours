@@ -1,4 +1,4 @@
-package com.abdulsamadsyed.resturantopeninghours.model.input
+package com.abdulsamadsyed.restaurantopeninghours.model.input
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

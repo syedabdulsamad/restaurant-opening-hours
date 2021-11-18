@@ -1,4 +1,4 @@
-package com.abdulsamadsyed.resturantopeninghours.model.input
+package com.abdulsamadsyed.restaurantopeninghours.model.input
 
 enum class DaysOfWeek(val displayName: String) {
     monday("Monday"),
