@@ -23,4 +23,14 @@ class CustomisedResponseEntityExceptionHandler {
             timestamp = Date()
         )
     }
+
+    @ExceptionHandler(RequestFormatException::class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    fun handleRequestFormatException(ex: RequestFormatException, request: WebRequest): ErrorDetail {
+        return ErrorDetail(
+            message = ex.message,
+            details = request.getDescription(false),
+            timestamp = Date()
+        )
+    }
 }
